@@ -121,7 +121,7 @@ public class LuceneCommonIndexer {
 
 		    Document doc = new Document();		    
 		    
-		    doc.add(new Field("contents", new StringReader(textHandler.toString()))); 
+		    doc.add(new Field("contents", textHandler.toString(),Field.Store.NO, Field.Index.ANALYZED)); 
 		    doc.add(new Field("filename", file.getCanonicalPath(),Field.Store.YES, Field.Index.NOT_ANALYZED));
 		    writer.addDocument(doc);
 		  }
