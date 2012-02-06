@@ -109,8 +109,12 @@ public class LuceneCommonIndexer {
 		    if (file.isHidden() || !file.exists() || !file.canRead()) {
 		      return;
 		    }
+		    
+		    /*
 
 		    System.out.println("Indexing " + file.getCanonicalPath());
+		    
+		    */
 		    
 		    is = new FileInputStream(file);
 		    textHandler =new BodyContentHandler();
