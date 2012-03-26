@@ -37,6 +37,7 @@ import org.apache.tika.config.TikaConfig;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.pdf.PDFParser;
 import org.apache.tika.sax.BodyContentHandler;
@@ -51,8 +52,6 @@ public class LuceneCommonIndexer {
 	private File destination;
 	
 	private static InputStream is;
-	
-	private static PDFParser pdfParser;
 	
 	private static Parser commonParser;
 	
@@ -121,7 +120,7 @@ public class LuceneCommonIndexer {
 		    metadata = new Metadata();
 		    
 		    commonParser=new AutoDetectParser();
-		    commonParser.parse(is, textHandler, metadata, null);		  
+		    commonParser.parse(is, textHandler, metadata, new ParseContext());		  
 
 		    Document doc = new Document();		    
 		    
